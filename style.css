@@ -1281,3 +1281,18 @@ background: #f3ede2;
     height: 380px;
   }
 }
+.portfolio-item {
+  flex: 0 0 320px;
+  height: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #f3ede2;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #f3ede2;
+}
