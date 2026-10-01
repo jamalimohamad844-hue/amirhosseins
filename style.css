@@ -1296,3 +1296,31 @@ background: #f3ede2;
   display: block;
   background: #f3ede2;
 }
+.portfolio-scroll {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 10px 5px 25px;
+}
+
+.portfolio-scroll .portfolio-item {
+  flex: 0 0 300px !important;
+  width: 300px !important;
+  height: 400px !important;
+  min-width: 300px !important;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f3ede2;
+}
+
+.portfolio-scroll .portfolio-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+  background: #f3ede2;
+}
