@@ -1324,3 +1324,44 @@ background: #f3ede2;
   display: block;
   background: #f3ede2;
 }
+.portfolio-grid {
+  display: block !important;
+  width: 100%;
+}
+
+.portfolio-scroll {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 5px 25px;
+  box-sizing: border-box;
+}
+
+.portfolio-item {
+  flex: 0 0 300px !important;
+  width: 300px !important;
+  height: 400px !important;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f3ede2;
+  box-sizing: border-box;
+}
+
+.portfolio-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .portfolio-item {
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    height: 380px !important;
+  }
+}
