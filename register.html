@@ -1,0 +1,144 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ثبت‌نام | ADMIN VIP</title>
+
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+  <main class="auth-page">
+
+    <div class="auth-background"></div>
+
+    <section class="auth-card register-card">
+
+      <a href="index.html" class="brand">
+        ADMIN <span>VIP</span>
+      </a>
+
+      <div class="auth-heading">
+        <span class="eyebrow">JOIN ADMIN VIP</span>
+
+        <h1>حساب خودت رو بساز ✨</h1>
+
+        <p>
+          ثبت‌نام کن و وارد فضای اختصاصی ADMIN VIP شو.
+        </p>
+      </div>
+
+      <form id="registerForm">
+
+        <div class="form-group">
+          <label for="name">نام و نام خانوادگی</label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="مثلاً امیر حسین"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email">ایمیل</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="example@email.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="registerPassword">رمز عبور</label>
+
+          <div class="password-box">
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="حداقل ۸ کاراکتر"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+
+            <button
+              type="button"
+              class="show-password"
+              data-target="registerPassword"
+            >
+              ◉
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">تکرار رمز عبور</label>
+
+          <div class="password-box">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="رمز عبور را دوباره وارد کنید"
+              autocomplete="new-password"
+              required
+            >
+
+            <button
+              type="button"
+              class="show-password"
+              data-target="confirmPassword"
+            >
+              ◉
+            </button>
+          </div>
+        </div>
+
+        <label class="terms">
+          <input type="checkbox" id="terms" required>
+
+          <span>
+            قوانین و شرایط ADMIN VIP را می‌پذیرم.
+          </span>
+        </label>
+
+        <button type="submit" class="auth-button">
+          ساخت حساب
+          <span>←</span>
+        </button>
+
+        <p id="registerMessage" class="message"></p>
+
+      </form>
+
+      <div class="divider">
+        <span>یا</span>
+      </div>
+
+      <div class="register-link">
+        قبلاً حساب ساخته‌ای؟
+        <a href="login.html">وارد شو</a>
+      </div>
+
+      <a href="index.html" class="back-home">
+        ← بازگشت به سایت
+      </a>
+
+    </section>
+
+  </main>
+
+  <script src="auth.js"></script>
+
+</body>
+</html>
+```
