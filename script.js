@@ -1,96 +1,63 @@
-/* =========================
-   MOBILE MENU
-========================= */
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".nav-links");
 
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
+if (menuBtn) {
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("mobile-open");
+  });
+}
 
-menuButton.addEventListener("click", () => {
 
-    mobileMenu.classList.toggle("active");
+// بستن منو بعد از کلیک روی لینک
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("mobile-open");
+  });
+});
+
+
+// تغییر ظاهر هدر هنگام اسکرول
+window.addEventListener("scroll", () => {
+
+  const header = document.querySelector(".header");
+
+  if (window.scrollY > 50) {
+    header.style.background = "rgba(3,9,20,.92)";
+  } else {
+    header.style.background = "rgba(3,9,20,.65)";
+  }
 
 });
 
 
-/* =========================
-   CLOSE MOBILE MENU
-========================= */
+// انیمیشن ورود عناصر
+const observer = new IntersectionObserver(
+  entries => {
 
-const mobileLinks = document.querySelectorAll(".mobile-menu a");
+    entries.forEach(entry => {
 
-mobileLinks.forEach(link => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
 
-    link.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("active");
+      }
 
     });
 
-});
-
-
-/* =========================
-   HEADER SCROLL EFFECT
-========================= */
-
-const header = document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 50) {
-
-        header.style.background = "rgba(4, 13, 24, 0.95)";
-
-    } else {
-
-        header.style.background = "rgba(6,17,31,0.85)";
-
-    }
-
-});
-
-
-/* =========================
-   REVEAL ANIMATION
-========================= */
-
-const elements = document.querySelectorAll(
-    ".skill-card, .timeline-item, .info-card, .about-text"
-);
-
-const observer = new IntersectionObserver(
-
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-
-                entry.target.style.transform = "translateY(0)";
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
+  },
+  {
+    threshold: 0.12
+  }
 );
 
 
-elements.forEach(element => {
+document
+  .querySelectorAll(
+    ".team-card, .service-card, .about-item, .cta-box"
+  )
+  .forEach(el => {
 
-    element.style.opacity = "0";
+    el.classList.add("hidden");
 
-    element.style.transform = "translateY(25px)";
+    observer.observe(el);
 
-    element.style.transition = "opacity .7s ease, transform .7s ease";
-
-    observer.observe(element);
-
-});
+  });
