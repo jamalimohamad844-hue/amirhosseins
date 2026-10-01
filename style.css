@@ -1200,3 +1200,49 @@ footer {
 object-fit: cover;
   object-fit: contain;
 background: #f3ede2;
+/* Portfolio horizontal scroll */
+
+.portfolio-scroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 5px 25px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  cursor: grab;
+}
+
+.portfolio-scroll:active {
+  cursor: grabbing;
+}
+
+.portfolio-scroll .portfolio-card {
+  flex: 0 0 360px;
+  height: 420px;
+  scroll-snap-align: start;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #f3ede2;
+  position: relative;
+}
+
+.portfolio-scroll .portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .portfolio-scroll {
+    gap: 16px;
+  }
+
+  .portfolio-scroll .portfolio-card {
+    flex: 0 0 82vw;
+    height: 400px;
+  }
+}
