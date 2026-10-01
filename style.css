@@ -1185,10 +1185,18 @@ footer {
   .nav-links.mobile-open a:last-child {
     border-bottom: 0;
   }
+.portfolio-media {
+  height: 360px;
+  overflow: hidden;
+  border-radius: 20px;
 }
+
 .portfolio-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+object-fit: cover;
+  object-fit: contain;
+background: #f3ede2;
