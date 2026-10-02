@@ -1,3 +1,4 @@
+```js
 const SUPABASE_URL = "https://vfkfrjobbkgkvztbqzbi.supabase.co";
 const SUPABASE_KEY = "sb_publishable_w60DsuaplSnwg7LYSsgqDA_M_1W8t9g";
 
@@ -34,7 +35,8 @@ document.querySelectorAll(".show-password").forEach(button => {
 // REGISTER
 // =========================
 
-const registerForm = document.getElementById("registerForm");
+const registerForm =
+  document.getElementById("registerForm");
 
 if (registerForm) {
 
@@ -115,7 +117,10 @@ if (registerForm) {
 
     if (error) {
 
-      console.error("Supabase signup error:", error);
+      console.error(
+        "Supabase signup error:",
+        error
+      );
 
       message.textContent =
         error.message;
@@ -149,13 +154,11 @@ if (loginForm) {
 
     event.preventDefault();
 
-
     const email =
       document.getElementById("email").value.trim();
 
     const password =
       document.getElementById("password").value;
-
 
     const message =
       document.getElementById("loginMessage");
@@ -190,7 +193,10 @@ if (loginForm) {
 
     if (error) {
 
-      console.error("Supabase login error:", error);
+      console.error(
+        "Supabase login error:",
+        error
+      );
 
       message.textContent =
         "ایمیل یا رمز عبور اشتباه است.";
@@ -217,21 +223,44 @@ if (loginForm) {
   });
 
 }
+
+
 // =========================
 // USER MENU
 // =========================
 
-const loginBtn = document.getElementById("loginBtn");
-const registerBtn = document.getElementById("registerBtn");
-const userMenu = document.getElementById("userMenu");
-const userWelcome = document.getElementById("userWelcome");
-const logoutBtn = document.getElementById("logoutBtn");
+const loginBtn =
+  document.getElementById("loginBtn");
+
+const registerBtn =
+  document.getElementById("registerBtn");
+
+const userMenu =
+  document.getElementById("userMenu");
+
+const userWelcome =
+  document.getElementById("userWelcome");
+
+const dropdownName =
+  document.getElementById("dropdownName");
+
+const logoutBtn =
+  document.getElementById("logoutBtn");
+
+const userProfileButton =
+  document.getElementById("userProfileButton");
+
+
+// =========================
+// نمایش اطلاعات کاربر
+// =========================
 
 async function updateUserMenu() {
 
   if (!loginBtn || !registerBtn || !userMenu) {
     return;
   }
+
 
   const {
     data: {
@@ -243,26 +272,75 @@ async function updateUserMenu() {
   if (user) {
 
     loginBtn.style.display = "none";
+
     registerBtn.style.display = "none";
 
     userMenu.style.display = "flex";
+
 
     const name =
       user.user_metadata?.full_name ||
       user.email?.split("@")[0] ||
       "کاربر";
 
-    userWelcome.textContent =
-      `سلام ${name} 👋`;
+
+    if (userWelcome) {
+
+      userWelcome.textContent =
+        `سلام ${name} 👋`;
+
+    }
+
+
+    if (dropdownName) {
+
+      dropdownName.textContent =
+        name;
+
+    }
 
   } else {
 
-    loginBtn.style.display = "inline-flex";
-    registerBtn.style.display = "inline-flex";
+    loginBtn.style.display =
+      "inline-flex";
 
-    userMenu.style.display = "none";
+    registerBtn.style.display =
+      "inline-flex";
+
+    userMenu.style.display =
+      "none";
 
   }
+
+}
+
+
+// =========================
+// باز و بسته کردن منو
+// =========================
+
+if (userProfileButton && userMenu) {
+
+  userProfileButton.addEventListener(
+    "click",
+    (event) => {
+
+      event.stopPropagation();
+
+      userMenu.classList.toggle("active");
+
+    }
+  );
+
+
+  document.addEventListener(
+    "click",
+    () => {
+
+      userMenu.classList.remove("active");
+
+    }
+  );
 
 }
 
@@ -273,115 +351,47 @@ async function updateUserMenu() {
 
 if (logoutBtn) {
 
-  logoutBtn.addEventListener("click", async () => {
+  logoutBtn.addEventListener(
+    "click",
+    async () => {
 
-    logoutBtn.disabled = true;
-    logoutBtn.textContent = "در حال خروج...";
+      logoutBtn.disabled = true;
 
-    const { error } =
-      await supabaseClient.auth.signOut();
+      logoutBtn.textContent =
+        "در حال خروج...";
 
-    if (error) {
 
-      console.error("Logout error:", error);
+      const { error } =
+        await supabaseClient.auth.signOut();
 
-      logoutBtn.disabled = false;
-      logoutBtn.textContent = "خروج";
 
-      return;
+      if (error) {
+
+        console.error(
+          "Logout error:",
+          error
+        );
+
+        logoutBtn.disabled = false;
+
+        logoutBtn.textContent =
+          "خروج";
+
+        return;
+      }
+
+
+      window.location.reload();
+
     }
-
-    window.location.reload();
-
-  });
+  );
 
 }
 
+
+// =========================
+// اجرای منوی کاربر
+// =========================
 
 updateUserMenu();
-// =========================
-// USER MENU
-// =========================
-
-const loginBtn = document.getElementById("loginBtn");
-const registerBtn = document.getElementById("registerBtn");
-const userMenu = document.getElementById("userMenu");
-const userWelcome = document.getElementById("userWelcome");
-const logoutBtn = document.getElementById("logoutBtn");
-
-
-async function updateUserMenu() {
-
-  if (!loginBtn || !registerBtn || !userMenu) {
-    return;
-  }
-
-  const {
-    data: {
-      user
-    }
-  } = await supabaseClient.auth.getUser();
-
-
-  if (user) {
-
-    loginBtn.style.display = "none";
-    registerBtn.style.display = "none";
-
-    userMenu.style.display = "flex";
-
-    const name =
-      user.user_metadata?.full_name ||
-      user.email?.split("@")[0] ||
-      "کاربر";
-
-    userWelcome.textContent =
-      `سلام ${name} 👋`;
-
-  } else {
-
-    loginBtn.style.display = "inline-flex";
-    registerBtn.style.display = "inline-flex";
-
-    userMenu.style.display = "none";
-
-  }
-
-}
-
-
-// =========================
-// LOGOUT
-// =========================
-
-if (logoutBtn) {
-
-  logoutBtn.addEventListener("click", async () => {
-
-    logoutBtn.disabled = true;
-    logoutBtn.textContent = "در حال خروج...";
-
-
-    const { error } =
-      await supabaseClient.auth.signOut();
-
-
-    if (error) {
-
-      console.error("Logout error:", error);
-
-      logoutBtn.disabled = false;
-      logoutBtn.textContent = "خروج";
-
-      return;
-    }
-
-
-    window.location.reload();
-
-  });
-
-}
-
-
-updateUserMenu();
+```
