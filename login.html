@@ -1,113 +1,225 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>ورود | ADMIN VIP</title>
 
-  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
 
-  <main class="auth-page">
+  <div class="login-bg">
+    <div class="login-glow glow-one"></div>
+    <div class="login-glow glow-two"></div>
+    <div class="login-grid"></div>
+  </div>
 
-    <div class="auth-background"></div>
 
-    <section class="auth-card">
+  <main class="login-page">
 
-      <a href="index.html" class="brand">
+    <section class="login-info">
+
+      <a href="index.html" class="login-logo">
         ADMIN <span>VIP</span>
       </a>
 
-      <div class="auth-heading">
-        <span class="eyebrow">WELCOME BACK</span>
+      <div class="login-intro">
 
-        <h1>خوش برگشتی 👋</h1>
+        <span>WELCOME BACK</span>
+
+        <h1>
+          دوباره
+          <strong>خوش آمدی.</strong>
+        </h1>
 
         <p>
-          برای ورود به حساب کاربری خود اطلاعاتت رو وارد کن.
+          وارد حساب کاربری خودت شو و به فضای
+          اختصاصی ADMIN VIP برگرد.
         </p>
+
       </div>
 
-      <form id="loginForm">
+      <div class="login-numbers">
 
-        <div class="form-group">
-          <label for="email">ایمیل یا شماره موبایل</label>
-
-          <input
-            type="text"
-            id="email"
-            placeholder="ایمیل یا شماره موبایل"
-            autocomplete="username"
-            required
-          >
+        <div>
+          <b>01</b>
+          <small>CREATIVE</small>
         </div>
 
-        <div class="form-group">
-          <div class="label-row">
-            <label for="password">رمز عبور</label>
+        <div>
+          <b>02</b>
+          <small>DESIGN</small>
+        </div>
 
-            <a href="#" class="forgot">
-              فراموشی رمز؟
-            </a>
+        <div>
+          <b>03</b>
+          <small>DIGITAL</small>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="login-box">
+
+      <div class="login-card">
+
+        <div class="login-card-head">
+
+          <div>
+
+            <small>LOGIN ACCOUNT</small>
+
+            <h2>
+              خوش برگشتی 👋
+            </h2>
+
+            <p>
+              اطلاعاتت رو وارد کن.
+            </p>
+
           </div>
 
-          <div class="password-box">
+          <strong>02</strong>
+
+        </div>
+
+
+        <form id="loginForm">
+
+          <div class="login-field">
+
+            <label for="email">
+              ایمیل یا شماره موبایل
+            </label>
+
+            <div class="login-input">
+
+              <span>@</span>
+
+              <input
+                type="text"
+                id="email"
+                placeholder="ایمیل یا شماره موبایل"
+                autocomplete="username"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="login-field">
+
+            <div class="login-label">
+
+              <label for="password">
+                رمز عبور
+              </label>
+
+              <a href="#">
+                فراموشی رمز؟
+              </a>
+
+            </div>
+
+
+            <div class="login-input">
+
+              <span>◆</span>
+
+              <input
+                type="password"
+                id="password"
+                placeholder="رمز عبور خود را وارد کنید"
+                autocomplete="current-password"
+                required
+              >
+
+              <button
+                type="button"
+                id="showPassword"
+                aria-label="نمایش رمز عبور"
+              >
+                ◉
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <label class="login-check">
+
             <input
-              type="password"
-              id="password"
-              placeholder="رمز عبور خود را وارد کنید"
-              autocomplete="current-password"
-              required
+              type="checkbox"
+              id="remember"
             >
 
-            <button
-              type="button"
-              class="show-password"
-              id="showPassword"
-              aria-label="نمایش رمز عبور"
-            >
-              ◉
-            </button>
-          </div>
+            <span>
+              مرا به خاطر بسپار
+            </span>
+
+          </label>
+
+
+          <button
+            type="submit"
+            class="login-submit"
+          >
+
+            <span>
+              ورود به حساب
+            </span>
+
+            <b>←</b>
+
+          </button>
+
+
+          <p
+            id="loginMessage"
+            class="login-message"
+          ></p>
+
+        </form>
+
+
+        <div class="login-register">
+
+          <span>
+            حساب کاربری نداری؟
+          </span>
+
+          <a href="register.html">
+            ثبت‌نام کن
+          </a>
+
         </div>
 
-        <label class="remember">
-          <input type="checkbox" id="remember">
-          <span>مرا به خاطر بسپار</span>
-        </label>
 
-        <button type="submit" class="auth-button">
-          ورود به حساب
-          <span>←</span>
-        </button>
+        <a
+          href="index.html"
+          class="login-home"
+        >
+          ← بازگشت به ADMIN VIP
+        </a>
 
-        <p id="loginMessage" class="message"></p>
-
-      </form>
-
-      <div class="divider">
-        <span>یا</span>
       </div>
-
-      <div class="register-link">
-        حساب کاربری نداری؟
-        <a href="register.html">ثبت‌نام کن</a>
-      </div>
-
-      <a href="index.html" class="back-home">
-        ← بازگشت به سایت
-      </a>
 
     </section>
 
   </main>
 
+
   <script src="auth.js"></script>
 
 </body>
+
 </html>
-```
