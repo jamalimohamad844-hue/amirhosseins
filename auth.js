@@ -1,128 +1,207 @@
-```javascript
-document.addEventListener("DOMContentLoaded", () => {
+const SUPABASE_URL = "PROJECT_URL";
+const SUPABASE_KEY = "PUBLISHABLE_KEY";
 
-  // نمایش / مخفی کردن رمز
-  document.querySelectorAll(".show-password").forEach(button => {
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
-    button.addEventListener("click", () => {
 
-      const targetId = button.dataset.target;
+// =========================
+// نمایش / مخفی کردن رمز
+// =========================
 
-      const input = targetId
-        ? document.getElementById(targetId)
-        : document.getElementById("password");
+document.querySelectorAll(".show-password").forEach(button => {
 
-      if (!input) return;
+  button.addEventListener("click", () => {
 
-      if (input.type === "password") {
-        input.type = "text";
-        button.textContent = "◉";
-      } else {
-        input.type = "password";
-        button.textContent = "◉";
-      }
+    const targetId = button.dataset.target || "password";
+    const input = document.getElementById(targetId);
 
-    });
+    if (!input) return;
+
+    if (input.type === "password") {
+      input.type = "text";
+    } else {
+      input.type = "password";
+    }
 
   });
 
-
-  // ورود
-  const loginForm = document.getElementById("loginForm");
-
-  if (loginForm) {
-
-    loginForm.addEventListener("submit", event => {
-
-      event.preventDefault();
-
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const message = document.getElementById("loginMessage");
-
-      if (!email || !password) {
-
-        message.textContent = "لطفاً همه فیلدها را کامل کنید.";
-        message.style.color = "#b34d35";
-
-        return;
-      }
-
-      message.textContent = "فرم ورود آماده است.";
-      message.style.color = "#5d806d";
-
-      /*
-        این قسمت فعلاً فقط ظاهر و اعتبارسنجی فرم است.
-        برای ورود واقعی باید بک‌اند / دیتابیس اضافه شود.
-      */
-
-    });
-
-  }
+});
 
 
-  // ثبت نام
-  const registerForm = document.getElementById("registerForm");
+// =========================
+// REGISTER
+// =========================
 
-  if (registerForm) {
+const registerForm = document.getElementById("registerForm");
 
-    registerForm.addEventListener("submit", event => {
+if (registerForm) {
 
-      event.preventDefault();
+  registerForm.addEventListener("submit", async (event) => {
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const password =
-        document.getElementById("registerPassword").value;
+    event.preventDefault();
 
-      const confirmPassword =
-        document.getElementById("confirmPassword").value;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password =
+      document.getElementById("registerPassword").value;
 
-      const message =
-        document.getElementById("registerMessage");
+    const confirmPassword =
+      document.getElementById("confirmPassword").value;
 
-
-      if (!name || !email || !password || !confirmPassword) {
-
-        message.textContent =
-          "لطفاً همه فیلدها را کامل کنید.";
-
-        message.style.color = "#b34d35";
-
-        return;
-      }
+    const message =
+      document.getElementById("registerMessage");
 
 
-      if (password.length < 8) {
-
-        message.textContent =
-          "رمز عبور باید حداقل ۸ کاراکتر باشد.";
-
-        message.style.color = "#b34d35";
-
-        return;
-      }
-
-
-      if (password !== confirmPassword) {
-
-        message.textContent =
-          "رمزهای عبور با هم مطابقت ندارند.";
-
-        message.style.color = "#b34d35";
-
-        return;
-      }
-
+    if (!name || !email || !password || !confirmPassword) {
 
       message.textContent =
-        "ثبت‌نام با موفقیت انجام شد.";
+        "لطفاً همه فیلدها را کامل کنید.";
 
-      message.style.color = "#5d806d";
+      message.style.color = "#b34d35";
 
-    });
+      return;
+    }
 
-  }
 
-});
-```
+    if (password.length < 8) {
+
+      message.textContent =
+        "رمز عبور باید حداقل ۸ کاراکتر باشد.";
+
+      message.style.color = "#b34d35";
+
+      return;
+    }
+
+
+    if (password !== confirmPassword) {
+
+      message.textContent =
+        "رمزهای عبور با هم مطابقت ندارند.";
+
+      message.style.color = "#b34d35";
+
+      return;
+    }
+
+
+    message.textContent = "در حال ساخت حساب...";
+
+    message.style.color = "#9a8061";
+
+
+    const { data, error } =
+      await supabaseClient.auth.signUp({
+
+        email: email,
+        password: password,
+
+        options: {
+          data: {
+            full_name: name
+          }
+        }
+
+      });
+
+
+    if (error) {
+
+      message.textContent =
+        error.message;
+
+      message.style.color = "#b34d35";
+
+      return;
+    }
+
+
+    message.textContent =
+      "حساب با موفقیت ساخته شد.";
+
+    message.style.color = "#5d806d";
+
+  });
+
+}
+
+
+// =========================
+// LOGIN
+// =========================
+
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+
+  loginForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+
+    const email =
+      document.getElementById("email").value.trim();
+
+    const password =
+      document.getElementById("password").value;
+
+
+    const message =
+      document.getElementById("loginMessage");
+
+
+    if (!email || !password) {
+
+      message.textContent =
+        "لطفاً ایمیل و رمز عبور را وارد کنید.";
+
+      message.style.color = "#b34d35";
+
+      return;
+    }
+
+
+    message.textContent =
+      "در حال ورود...";
+
+    message.style.color = "#9a8061";
+
+
+    const { data, error } =
+      await supabaseClient.auth.signInWithPassword({
+
+        email: email,
+        password: password
+
+      });
+
+
+    if (error) {
+
+      message.textContent =
+        "ایمیل یا رمز عبور اشتباه است.";
+
+      message.style.color = "#b34d35";
+
+      return;
+    }
+
+
+    message.textContent =
+      "ورود موفق بود.";
+
+    message.style.color = "#5d806d";
+
+
+    setTimeout(() => {
+
+      window.location.href = "index.html";
+
+    }, 800);
+
+  });
+
+}
