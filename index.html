@@ -67,17 +67,87 @@
     ثبت‌نام
   </a>
 
-  <div class="user-menu" id="userMenu" style="display:none;">
+<div class="user-menu" id="userMenu" style="display:none;">
 
-    <span class="user-welcome" id="userWelcome">
-      سلام 👋
+  <button class="user-profile-button" id="userProfileButton">
+
+    <span class="user-avatar">
+      <span>VIP</span>
     </span>
 
-    <button class="logout-button" id="logoutBtn">
-      خروج
+    <span class="user-info">
+
+      <strong id="userWelcome">
+        سلام 👋
+      </strong>
+
+      <small>
+        حساب کاربری
+      </small>
+
+    </span>
+
+    <span class="user-arrow">
+     ⌄
+    </span>
+
+  </button>
+
+
+  <div class="user-dropdown" id="userDropdown">
+
+    <div class="dropdown-head">
+
+      <span class="dropdown-avatar">
+        VIP
+      </span>
+
+      <div>
+        <strong id="dropdownName">
+          کاربر
+        </strong>
+
+        <small>
+          عضو ADMIN VIP
+        </small>
+      </div>
+
+    </div>
+
+
+    <div class="dropdown-line"></div>
+
+
+    <a href="profile.html" class="dropdown-item">
+
+      <span>◈</span>
+
+      <div>
+        <strong>پروفایل من</strong>
+        <small>مشاهده حساب کاربری</small>
+      </div>
+
+      <b>←</b>
+
+    </a>
+
+
+    <button class="dropdown-item logout-item" id="logoutBtn">
+
+      <span>↪</span>
+
+      <div>
+        <strong>خروج از حساب</strong>
+        <small>خروج امن از حساب کاربری</small>
+      </div>
+
+      <b>←</b>
+
     </button>
 
   </div>
+
+</div>
 
   <a href="#contact" class="nav-button">
     شروع همکاری
