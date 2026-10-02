@@ -1365,3 +1365,42 @@ background: #f3ede2;
     height: 380px !important;
   }
 }
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-welcome {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.logout-button {
+  height: 42px;
+  padding: 0 17px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--black);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.logout-button:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+
+  .user-menu {
+    display: none !important;
+  }
+
+}  
