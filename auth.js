@@ -205,9 +205,9 @@ if (loginForm) {
 
       return;
     }
-
-
-    message.textContent =
+console.log("LOGIN SUCCESS");
+console.log("USER:", await supabaseClient.auth.getUser());
+   message.textContent =
       "ورود موفق بود.";
 
     message.style.color = "#5d806d";
