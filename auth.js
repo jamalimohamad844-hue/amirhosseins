@@ -20,11 +20,10 @@ document.querySelectorAll(".show-password").forEach(button => {
 
     if (!input) return;
 
-    if (input.type === "password") {
-      input.type = "text";
-    } else {
-      input.type = "password";
-    }
+    input.type =
+      input.type === "password"
+        ? "text"
+        : "password";
 
   });
 
@@ -43,8 +42,12 @@ if (registerForm) {
 
     event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
+    const name =
+      document.getElementById("name").value.trim();
+
+    const email =
+      document.getElementById("email").value.trim();
+
     const password =
       document.getElementById("registerPassword").value;
 
@@ -88,15 +91,17 @@ if (registerForm) {
     }
 
 
-    message.textContent = "در حال ساخت حساب...";
+    message.textContent =
+      "در حال ساخت حساب...";
 
     message.style.color = "#9a8061";
 
 
-    const { data, error } =
+    const { error } =
       await supabaseClient.auth.signUp({
 
         email: email,
+
         password: password,
 
         options: {
@@ -109,6 +114,8 @@ if (registerForm) {
 
 
     if (error) {
+
+      console.error("Supabase signup error:", error);
 
       message.textContent =
         error.message;
@@ -133,7 +140,8 @@ if (registerForm) {
 // LOGIN
 // =========================
 
-const loginForm = document.getElementById("loginForm");
+const loginForm =
+  document.getElementById("loginForm");
 
 if (loginForm) {
 
@@ -170,16 +178,19 @@ if (loginForm) {
     message.style.color = "#9a8061";
 
 
-    const { data, error } =
+    const { error } =
       await supabaseClient.auth.signInWithPassword({
 
         email: email,
+
         password: password
 
       });
 
 
     if (error) {
+
+      console.error("Supabase login error:", error);
 
       message.textContent =
         "ایمیل یا رمز عبور اشتباه است.";
@@ -198,7 +209,8 @@ if (loginForm) {
 
     setTimeout(() => {
 
-      window.location.href = "index.html";
+      window.location.href =
+        "index.html";
 
     }, 800);
 
