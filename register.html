@@ -1,6 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,130 +13,302 @@
 
 <body>
 
-  <main class="auth-page">
+  <div class="luxury-bg">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
 
-    <div class="auth-background"></div>
+    <div class="grid-lines"></div>
+  </div>
 
-    <section class="auth-card register-card">
 
-      <a href="index.html" class="brand">
+  <main class="register-page">
+
+    <!-- سمت چپ -->
+    <section class="brand-side">
+
+      <a href="index.html" class="big-logo">
         ADMIN <span>VIP</span>
       </a>
 
-      <div class="auth-heading">
-        <span class="eyebrow">JOIN ADMIN VIP</span>
+      <div class="brand-content">
 
-        <h1>حساب خودت رو بساز ✨</h1>
+        <span class="mini-title">
+          WELCOME TO ADMIN VIP
+        </span>
+
+        <h1>
+          جایی برای
+          <strong>ساختن</strong>
+          ایده‌های بزرگ.
+        </h1>
 
         <p>
-          ثبت‌نام کن و وارد فضای اختصاصی ADMIN VIP شو.
+          به فضای اختصاصی ADMIN VIP خوش آمدی.
+          حساب خودت را بساز و با ما وارد دنیای
+          خلاقیت و دیجیتال شو.
         </p>
+
       </div>
 
-      <form id="registerForm">
 
-        <div class="form-group">
-          <label for="name">نام و نام خانوادگی</label>
+      <div class="brand-stats">
 
-          <input
-            type="text"
-            id="name"
-            placeholder="مثلاً امیر حسین"
-            autocomplete="name"
-            required
-          >
+        <div>
+          <strong>01</strong>
+          <span>CREATIVE</span>
         </div>
 
-        <div class="form-group">
-          <label for="email">ایمیل</label>
-
-          <input
-            type="email"
-            id="email"
-            placeholder="example@email.com"
-            autocomplete="email"
-            required
-          >
+        <div>
+          <strong>02</strong>
+          <span>DESIGN</span>
         </div>
 
-        <div class="form-group">
-          <label for="registerPassword">رمز عبور</label>
+        <div>
+          <strong>03</strong>
+          <span>DIGITAL</span>
+        </div>
 
-          <div class="password-box">
+      </div>
+
+    </section>
+
+
+    <!-- فرم -->
+    <section class="register-container">
+
+      <div class="register-card">
+
+        <div class="card-top">
+
+          <div>
+            <span class="eyebrow">
+              CREATE ACCOUNT
+            </span>
+
+            <h2>
+              ساخت حساب
+            </h2>
+
+            <p>
+              اطلاعاتت رو وارد کن و شروع کن.
+            </p>
+          </div>
+
+          <div class="card-number">
+            01
+          </div>
+
+        </div>
+
+
+        <form id="registerForm">
+
+
+          <div class="input-row">
+
+            <div class="form-group">
+
+              <label for="name">
+                نام و نام خانوادگی
+              </label>
+
+              <div class="input-box">
+
+                <span class="input-icon">
+                  ✦
+                </span>
+
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="مثلاً امیر حسین"
+                  autocomplete="name"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                ایمیل
+              </label>
+
+              <div class="input-box">
+
+                <span class="input-icon">
+                  @
+                </span>
+
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="example@email.com"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="registerPassword">
+              رمز عبور
+            </label>
+
+            <div class="input-box">
+
+              <span class="input-icon">
+                ◆
+              </span>
+
+              <input
+                type="password"
+                id="registerPassword"
+                placeholder="حداقل ۸ کاراکتر"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              >
+
+              <button
+                type="button"
+                class="show-password"
+                data-target="registerPassword"
+              >
+                ◉
+              </button>
+
+            </div>
+
+            <div class="password-strength">
+
+              <div class="strength-bars">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <small id="strengthText">
+                قدرت رمز عبور
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="confirmPassword">
+              تکرار رمز عبور
+            </label>
+
+            <div class="input-box">
+
+              <span class="input-icon">
+                ◆
+              </span>
+
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="رمز عبور را دوباره وارد کن"
+                autocomplete="new-password"
+                required
+              >
+
+              <button
+                type="button"
+                class="show-password"
+                data-target="confirmPassword"
+              >
+                ◉
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <label class="terms">
+
             <input
-              type="password"
-              id="registerPassword"
-              placeholder="حداقل ۸ کاراکتر"
-              autocomplete="new-password"
-              minlength="8"
+              type="checkbox"
+              id="terms"
               required
             >
 
-            <button
-              type="button"
-              class="show-password"
-              data-target="registerPassword"
-            >
-              ◉
-            </button>
-          </div>
-        </div>
+            <span>
+              قوانین و شرایط
+              <strong>ADMIN VIP</strong>
+              را می‌پذیرم.
+            </span>
 
-        <div class="form-group">
-          <label for="confirmPassword">تکرار رمز عبور</label>
+          </label>
 
-          <div class="password-box">
-            <input
-              type="password"
-              id="confirmPassword"
-              placeholder="رمز عبور را دوباره وارد کنید"
-              autocomplete="new-password"
-              required
-            >
 
-            <button
-              type="button"
-              class="show-password"
-              data-target="confirmPassword"
-            >
-              ◉
-            </button>
-          </div>
-        </div>
+          <button
+            type="submit"
+            class="register-button-main"
+          >
 
-        <label class="terms">
-          <input type="checkbox" id="terms" required>
+            <span>
+              ساخت حساب کاربری
+            </span>
+
+            <b>
+              ←
+            </b>
+
+          </button>
+
+
+          <p
+            id="registerMessage"
+            class="message"
+          ></p>
+
+
+        </form>
+
+
+        <div class="card-footer">
 
           <span>
-            قوانین و شرایط ADMIN VIP را می‌پذیرم.
+            قبلاً حساب ساخته‌ای؟
           </span>
-        </label>
 
-        <button type="submit" class="auth-button">
-          ساخت حساب
-          <span>←</span>
-        </button>
+          <a href="login.html">
+            ورود به حساب
+          </a>
 
-        <p id="registerMessage" class="message"></p>
+        </div>
 
-      </form>
 
-      <div class="divider">
-        <span>یا</span>
+        <a
+          href="index.html"
+          class="home-link"
+        >
+          ← بازگشت به ADMIN VIP
+        </a>
+
       </div>
-
-      <div class="register-link">
-        قبلاً حساب ساخته‌ای؟
-        <a href="login.html">وارد شو</a>
-      </div>
-
-      <a href="index.html" class="back-home">
-        ← بازگشت به سایت
-      </a>
 
     </section>
 
   </main>
+
 
   <script src="auth.js"></script>
 
