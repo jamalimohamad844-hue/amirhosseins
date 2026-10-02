@@ -299,3 +299,89 @@ if (logoutBtn) {
 
 
 updateUserMenu();
+// =========================
+// USER MENU
+// =========================
+
+const loginBtn = document.getElementById("loginBtn");
+const registerBtn = document.getElementById("registerBtn");
+const userMenu = document.getElementById("userMenu");
+const userWelcome = document.getElementById("userWelcome");
+const logoutBtn = document.getElementById("logoutBtn");
+
+
+async function updateUserMenu() {
+
+  if (!loginBtn || !registerBtn || !userMenu) {
+    return;
+  }
+
+  const {
+    data: {
+      user
+    }
+  } = await supabaseClient.auth.getUser();
+
+
+  if (user) {
+
+    loginBtn.style.display = "none";
+    registerBtn.style.display = "none";
+
+    userMenu.style.display = "flex";
+
+    const name =
+      user.user_metadata?.full_name ||
+      user.email?.split("@")[0] ||
+      "کاربر";
+
+    userWelcome.textContent =
+      `سلام ${name} 👋`;
+
+  } else {
+
+    loginBtn.style.display = "inline-flex";
+    registerBtn.style.display = "inline-flex";
+
+    userMenu.style.display = "none";
+
+  }
+
+}
+
+
+// =========================
+// LOGOUT
+// =========================
+
+if (logoutBtn) {
+
+  logoutBtn.addEventListener("click", async () => {
+
+    logoutBtn.disabled = true;
+    logoutBtn.textContent = "در حال خروج...";
+
+
+    const { error } =
+      await supabaseClient.auth.signOut();
+
+
+    if (error) {
+
+      console.error("Logout error:", error);
+
+      logoutBtn.disabled = false;
+      logoutBtn.textContent = "خروج";
+
+      return;
+    }
+
+
+    window.location.reload();
+
+  });
+
+}
+
+
+updateUserMenu();
