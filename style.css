@@ -166,21 +166,34 @@
   background: var(--brown);
 }
 
+```css
+/* ================= HERO BRAND COLORS ================= */
+
 .hero h1 {
-  font-size: clamp(55px, 7vw, 90px);
-
-  line-height: 1.08;
-
-  letter-spacing: -4px;
-
-  font-weight: 900;
+  color: #11100e;
 }
 
 .hero h1 strong {
-  display: block;
-  color: var(--brown);
+  color: #f3ede2 !important;
+
+  background: none !important;
+
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
 }
 
+
+/* ADMIN VIP داخل کارت */
+
+.hero-card h2 {
+  color: #fffdf9;
+}
+
+.hero-card h2 span {
+  color: #f3ede2 !important;
+}
+```
 .hero-content > p {
   max-width: 610px;
 
