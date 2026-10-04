@@ -7,7 +7,6 @@ const resendButton = document.getElementById("resendButton");
 
 const timerElement = document.getElementById("timer");
 const statusElement = document.getElementById("otpStatus");
-
 const successScreen = document.getElementById("successScreen");
 
 let isVerifying = false;
@@ -19,14 +18,17 @@ inputs.forEach((input, index) => {
 
   input.addEventListener("input", () => {
 
-    let value = input.value.replace(/\D/g, "");
+    // فقط عدد
+    const value = input.value.replace(/\D/g, "");
 
+    // فقط یک رقم
     input.value = value.slice(-1);
 
     if (input.value) {
 
       input.classList.add("filled");
 
+      // رفتن خودکار به کادر بعدی
       if (index < inputs.length - 1) {
         inputs[index + 1].focus();
       }
@@ -39,7 +41,7 @@ inputs.forEach((input, index) => {
 
     clearError();
 
-    /* وقتی رقم ششم وارد شد */
+    // وقتی ۶ رقم کامل شد
     if (getCode().length === 6) {
       startVerification();
     }
@@ -47,20 +49,48 @@ inputs.forEach((input, index) => {
   });
 
 
+  /* ================= BACKSPACE ================= */
+
+  input.addEventListener("keydown", (event) => {
+
+    if (event.key === "Backspace") {
+
+      if (input.value) {
+
+        input.value = "";
+        input.classList.remove("filled");
+
+      } else if (index > 0) {
+
+        inputs[index - 1].focus();
+
+        inputs[index - 1].value = "";
+
+        inputs[index - 1].classList.remove("filled");
+
+      }
+
+    }
+
+  });
+
+
+  /* ================= ARROW KEYS ================= */
+
   input.addEventListener("keydown", (event) => {
 
     if (
-      event.key === "Backspace" &&
-      !input.value &&
+      event.key === "ArrowLeft" &&
       index > 0
     ) {
-
       inputs[index - 1].focus();
+    }
 
-      inputs[index - 1].value = "";
-
-      inputs[index - 1].classList.remove("filled");
-
+    if (
+      event.key === "ArrowRight" &&
+      index < inputs.length - 1
+    ) {
+      inputs[index + 1].focus();
     }
 
   });
@@ -91,11 +121,15 @@ inputs[0].addEventListener("paste", (event) => {
   });
 
   if (pasted.length === 6) {
+
     startVerification();
+
   } else {
 
-    const nextIndex =
-      Math.min(pasted.length, inputs.length - 1);
+    const nextIndex = Math.min(
+      pasted.length,
+      inputs.length - 1
+    );
 
     inputs[nextIndex].focus();
 
@@ -131,6 +165,7 @@ function showError(message) {
 
 }
 
+
 function clearError() {
 
   statusElement.textContent = "";
@@ -161,11 +196,8 @@ function startVerification() {
     input.disabled = true;
   });
 
-  /*
-    فعلاً تستی است.
-    بعداً اینجا OTP واقعی Supabase قرار می‌گیرد.
-  */
 
+  // فعلاً تستی
   setTimeout(() => {
 
     successScreen.classList.add("show");
@@ -226,6 +258,7 @@ function startTimer() {
   }, 1000);
 
 }
+
 
 function updateTimer() {
 
