@@ -1,10 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
+
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>ADMIN VIP | تیم حرفه‌ای دیجیتال</title>
 
@@ -15,14 +20,22 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
 
 
@@ -57,106 +70,161 @@
       </nav>
 
 
-<div class="auth-buttons" id="authButtons">
+      <!-- AUTH -->
 
-  <a href="login.html" class="login-button" id="loginBtn">
-    ورود
-  </a>
+      <div class="auth-buttons" id="authButtons">
 
-  <a href="register.html" class="register-button" id="registerBtn">
-    ثبت‌نام
-  </a>
+        <a
+          href="login.html"
+          class="login-button"
+          id="loginBtn"
+        >
+          ورود
+        </a>
 
-<div class="user-menu" id="userMenu" style="display:none;">
-
-  <button class="user-profile-button" id="userProfileButton">
-
-    <span class="user-avatar">
-      <span>VIP</span>
-    </span>
-
-    <span class="user-info">
-
-      <strong id="userWelcome">
-        سلام 👋
-      </strong>
-
-      <small>
-        حساب کاربری
-      </small>
-
-    </span>
-
-    <span class="user-arrow">
-     ⌄
-    </span>
-
-  </button>
+        <a
+          href="register.html"
+          class="register-button"
+          id="registerBtn"
+        >
+          ثبت‌نام
+        </a>
 
 
-  <div class="user-dropdown" id="userDropdown">
+        <!-- USER MENU -->
 
-    <div class="dropdown-head">
+        <div
+          class="user-menu"
+          id="userMenu"
+          style="display:none;"
+        >
 
-      <span class="dropdown-avatar">
-        VIP
-      </span>
+          <button
+            class="user-profile-button"
+            id="userProfileButton"
+            type="button"
+          >
 
-      <div>
-        <strong id="dropdownName">
-          کاربر
-        </strong>
+            <span class="user-avatar">
+              <span>VIP</span>
+            </span>
 
-        <small>
-          عضو ADMIN VIP
-        </small>
+            <span class="user-info">
+
+              <strong id="userWelcome">
+                سلام 👋
+              </strong>
+
+              <small>
+                حساب کاربری
+              </small>
+
+            </span>
+
+            <span class="user-arrow">
+              ⌄
+            </span>
+
+          </button>
+
+
+          <div
+            class="user-dropdown"
+            id="userDropdown"
+          >
+
+            <div class="dropdown-head">
+
+              <span class="dropdown-avatar">
+                VIP
+              </span>
+
+              <div>
+
+                <strong id="dropdownName">
+                  کاربر
+                </strong>
+
+                <small>
+                  عضو ADMIN VIP
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="dropdown-line"></div>
+
+
+            <a
+              href="profile.html"
+              class="dropdown-item"
+            >
+
+              <span>◈</span>
+
+              <div>
+
+                <strong>
+                  پروفایل من
+                </strong>
+
+                <small>
+                  مشاهده حساب کاربری
+                </small>
+
+              </div>
+
+              <b>←</b>
+
+            </a>
+
+
+            <button
+              class="dropdown-item logout-item"
+              id="logoutBtn"
+              type="button"
+            >
+
+              <span>↪</span>
+
+              <div>
+
+                <strong>
+                  خروج از حساب
+                </strong>
+
+                <small>
+                  خروج امن از حساب کاربری
+                </small>
+
+              </div>
+
+              <b>←</b>
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <a
+          href="#contact"
+          class="nav-button"
+        >
+          شروع همکاری
+        </a>
+
       </div>
 
-    </div>
 
-
-    <div class="dropdown-line"></div>
-
-
-    <a href="profile.html" class="dropdown-item">
-
-      <span>◈</span>
-
-      <div>
-        <strong>پروفایل من</strong>
-        <small>مشاهده حساب کاربری</small>
-      </div>
-
-      <b>←</b>
-
-    </a>
-
-
-    <button class="dropdown-item logout-item" id="logoutBtn">
-
-      <span>↪</span>
-
-      <div>
-        <strong>خروج از حساب</strong>
-        <small>خروج امن از حساب کاربری</small>
-      </div>
-
-      <b>←</b>
-
-    </button>
-
-  </div>
-
-</div>
-
-  <a href="#contact" class="nav-button">
-    شروع همکاری
-  </a>
-
-</div>
-
-
-      <button class="menu-btn" id="menuBtn">
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+      >
         ☰
       </button>
 
@@ -173,7 +241,10 @@
 
     <!-- ================= HERO ================= -->
 
-    <section class="hero" id="home">
+    <section
+      class="hero"
+      id="home"
+    >
 
       <div class="hero-bg"></div>
 
@@ -181,7 +252,6 @@
 
 
         <div class="hero-content">
-
 
           <div class="hero-label">
 
@@ -217,32 +287,24 @@
 
           <div class="hero-buttons">
 
-
             <a
               href="#portfolio"
               class="btn btn-dark"
             >
-
               مشاهده نمونه‌کارها
-
             </a>
-
 
             <a
               href="#contact"
               class="btn btn-outline"
             >
-
               شروع همکاری
-
             </a>
-
 
           </div>
 
 
           <div class="hero-stats">
-
 
             <div>
 
@@ -282,21 +344,16 @@
 
             </div>
 
-
           </div>
 
-
         </div>
-
 
 
         <!-- HERO VISUAL -->
 
         <div class="hero-visual">
 
-
           <div class="hero-card">
-
 
             <div class="hero-card-top">
 
@@ -312,9 +369,7 @@
 
 
             <div class="hero-monogram">
-
               AV
-
             </div>
 
 
@@ -329,9 +384,7 @@
 
 
             <p>
-
               Creative Digital Team
-
             </p>
 
 
@@ -353,7 +406,6 @@
               </span>
 
             </div>
-
 
           </div>
 
@@ -383,9 +435,7 @@
 
           </div>
 
-
         </div>
-
 
       </div>
 
@@ -395,19 +445,19 @@
 
     <!-- ================= TEAM ================= -->
 
-    <section class="section team-section" id="team">
-
+    <section
+      class="section team-section"
+      id="team"
+    >
 
       <div class="container">
 
 
         <div class="section-heading">
 
-
           <span class="eyebrow">
             OUR TEAM
           </span>
-
 
           <h2>
 
@@ -418,7 +468,6 @@
 
           </h2>
 
-
           <p>
 
             یک تیم خلاق و باهوش، تخصص‌های متفاوت،
@@ -426,9 +475,7 @@
 
           </p>
 
-
         </div>
-
 
 
         <div class="team-grid">
@@ -437,7 +484,6 @@
           <!-- MEMBER 01 -->
 
           <article class="team-card">
-
 
             <div class="member-photo">
 
@@ -450,21 +496,17 @@
 
             <div class="member-content">
 
-
               <span class="member-number">
                 01
               </span>
-
 
               <span class="member-role">
                 INSTAGRAM ADMIN
               </span>
 
-
               <h3>
                 ملیکا
               </h3>
-
 
               <p>
 
@@ -474,17 +516,13 @@
 
               </p>
 
-
               <div class="member-line"></div>
-
 
               <span class="member-skill">
                 Instagram Management
               </span>
 
-
             </div>
-
 
           </article>
 
@@ -493,7 +531,6 @@
           <!-- MEMBER 02 -->
 
           <article class="team-card">
-
 
             <div class="member-photo">
 
@@ -506,21 +543,17 @@
 
             <div class="member-content">
 
-
               <span class="member-number">
                 02
               </span>
-
 
               <span class="member-role">
                 INSTAGRAM ADMIN
               </span>
 
-
               <h3>
                 زهرا
               </h3>
-
 
               <p>
 
@@ -530,17 +563,13 @@
 
               </p>
 
-
               <div class="member-line"></div>
-
 
               <span class="member-skill">
                 Instagram Management
               </span>
 
-
             </div>
-
 
           </article>
 
@@ -549,7 +578,6 @@
           <!-- MEMBER 03 -->
 
           <article class="team-card team-featured">
-
 
             <div class="member-photo">
 
@@ -562,21 +590,17 @@
 
             <div class="member-content">
 
-
               <span class="member-number">
                 03
               </span>
-
 
               <span class="member-role">
                 DESIGN • WEB • ADS
               </span>
 
-
               <h3>
                 امیر حسین
               </h3>
-
 
               <p>
 
@@ -585,7 +609,6 @@
                 خدمات Telegram Ads.
 
               </p>
-
 
               <div class="member-line"></div>
 
@@ -603,18 +626,24 @@
                 <span>
                   ADS
                 </span>
-<a
-  href="profile-amirhossein.html"
-  class="member-profile-button"
->
-  مشاهده رزومه و پروفایل
-  <span>←</span>
-</a>
+
               </div>
 
 
-            </div>
+              <a
+                href="profile-amirhossein.html"
+                class="member-profile-button"
+              >
 
+                مشاهده رزومه و پروفایل
+
+                <span>
+                  ←
+                </span>
+
+              </a>
+
+            </div>
 
           </article>
 
@@ -623,7 +652,6 @@
           <!-- MEMBER 04 -->
 
           <article class="team-card">
-
 
             <div class="member-photo">
 
@@ -636,21 +664,17 @@
 
             <div class="member-content">
 
-
               <span class="member-number">
                 04
               </span>
-
 
               <span class="member-role">
                 INSTAGRAM ADMIN
               </span>
 
-
               <h3>
                 خانم نجفی
               </h3>
-
 
               <p>
 
@@ -660,82 +684,98 @@
 
               </p>
 
-
               <div class="member-line"></div>
-
 
               <span class="member-skill">
                 Instagram Management
               </span>
 
+            </div>
+
+          </article>
+
+
+
+          <!-- MEMBER 05 -->
+
+          <article class="team-card">
+
+            <div class="member-photo">
+
+              <div class="photo-placeholder">
+                غ
+              </div>
 
             </div>
 
+
+            <div class="member-content">
+
+              <span class="member-number">
+                05
+              </span>
+
+              <span class="member-role">
+                INSTAGRAM ADMIN
+              </span>
+
+              <h3>
+                غزل ایراندوست
+              </h3>
+
+              <p>
+
+                ادمین حرفه‌ای اینستاگرام با ۵ سال سابقه کاری،
+                متخصص مدیریت صفر تا صد پیج، تولید محتوا،
+                ادمین فروش و رشد پیج.
+
+              </p>
+
+              <div class="member-line"></div>
+
+
+              <div class="skills-mini">
+
+                <span>
+                  ADMIN
+                </span>
+
+                <span>
+                  CONTENT
+                </span>
+
+                <span>
+                  EDIT
+                </span>
+
+              </div>
+
+
+              <a
+                href="profile-ghazal.html"
+                class="member-profile-button"
+              >
+
+                مشاهده پروفایل
+
+                <span>
+                  ←
+                </span>
+
+              </a>
+
+            </div>
 
           </article>
 
 
         </div>
 
-
       </div>
-
 
     </section>
 
-<!-- MEMBER 05 -->
 
-<article class="team-card">
-
-  <div class="member-photo">
-
-    <div class="photo-placeholder">
-      غ
-    </div>
-
-  </div>
-
-
-  <div class="member-content">
-
-    <span class="member-number">
-      05
-    </span>
-
-    <span class="member-role">
-      INSTAGRAM ADMIN
-    </span>
-
-    <h3>
-      غزل ایراندوست
-    </h3>
-
-    <p>
-      ادمین حرفه‌ای اینستاگرام با ۵ سال سابقه کاری،
-      متخصص مدیریت صفر تا صد پیج، تولید محتوا،
-      ادمین فروش و رشد پیج.
-    </p>
-
-    <div class="member-line"></div>
-
-    <div class="skills-mini">
-<a
-  href="profile-ghazal.html"
-  class="member-profile-button"
->
-  مشاهده پروفایل
-  <span>←</span>
-</a>
-      <span>ADMIN</span>
-      <span>CONTENT</span>
-      <span>EDIT</span>
-
-    </div>
-
-  </div>
-
-</article>
-```
 
     <!-- ================= SERVICES ================= -->
 
@@ -744,17 +784,14 @@
       id="services"
     >
 
-
       <div class="container">
 
 
         <div class="section-heading">
 
-
           <span class="eyebrow">
             WHAT WE DO
           </span>
-
 
           <h2>
 
@@ -765,7 +802,6 @@
 
           </h2>
 
-
           <p>
 
             هر چیزی که برای حضور حرفه‌ای
@@ -773,18 +809,13 @@
 
           </p>
 
-
         </div>
-
 
 
         <div class="services-grid">
 
 
-          <!-- SERVICE -->
-
           <article class="service-card">
-
 
             <div class="service-top">
 
@@ -798,11 +829,9 @@
 
             </div>
 
-
             <h3>
               مدیریت اینستاگرام
             </h3>
-
 
             <p>
 
@@ -812,20 +841,15 @@
 
             </p>
 
-
             <div class="service-arrow">
               ↗
             </div>
-
 
           </article>
 
 
 
-          <!-- SERVICE -->
-
           <article class="service-card">
-
 
             <div class="service-top">
 
@@ -839,11 +863,9 @@
 
             </div>
 
-
             <h3>
               طراحی سایت
             </h3>
-
 
             <p>
 
@@ -853,20 +875,15 @@
 
             </p>
 
-
             <div class="service-arrow">
               ↗
             </div>
-
 
           </article>
 
 
 
-          <!-- SERVICE -->
-
           <article class="service-card">
-
 
             <div class="service-top">
 
@@ -880,11 +897,9 @@
 
             </div>
 
-
             <h3>
               Telegram Ads
             </h3>
-
 
             <p>
 
@@ -894,20 +909,15 @@
 
             </p>
 
-
             <div class="service-arrow">
               ↗
             </div>
-
 
           </article>
 
 
 
-          <!-- SERVICE -->
-
           <article class="service-card">
-
 
             <div class="service-top">
 
@@ -921,11 +931,9 @@
 
             </div>
 
-
             <h3>
               طراحی و دیزاین
             </h3>
-
 
             <p>
 
@@ -935,20 +943,16 @@
 
             </p>
 
-
             <div class="service-arrow">
               ↗
             </div>
-
 
           </article>
 
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -961,17 +965,14 @@
       id="portfolio"
     >
 
-
       <div class="container">
 
 
         <div class="section-heading">
 
-
           <span class="eyebrow">
             SELECTED WORKS
           </span>
-
 
           <h2>
 
@@ -982,7 +983,6 @@
 
           </h2>
 
-
           <p>
 
             بخشی از پروژه‌ها و فعالیت‌های
@@ -990,184 +990,81 @@
 
           </p>
 
-
         </div>
 
 
+        <!-- فقط یک Portfolio Grid -->
 
         <div class="portfolio-grid">
 
+          <div class="portfolio-scroll">
 
-          <!-- PROJECT 01 -->
-<div class="portfolio-grid">
 
-  <div class="portfolio-scroll">
+            <div class="portfolio-item">
 
-    <div class="portfolio-item">
-      <img src="images/photo_2026-10-01_17-02-52.jpg" alt="نمونه کار ۱">
-    </div>
-
-    <div class="portfolio-item">
-      <img src="images/photo_2026-10-01_17-02-58.jpg" alt="نمونه کار ۲">
-    </div>
-
-    <div class="portfolio-item">
-      <img src="images/photo_2026-10-01_17-03-22.jpg" alt="نمونه کار ۳">
-    </div>
-
-    <div class="portfolio-item">
-      <img src="images/photo_2026-10-01_17-03-40.jpg" alt="نمونه کار ۴">
-    </div>
-
-    <div class="portfolio-item">
-      <img src="images/photo_2026-10-01_17-03-45.jpg" alt="نمونه کار ۵">
-    </div>
-
-    <div class="portfolio-item">
-      <img src="images/photo_2026-10-01_17-03-48.jpg" alt="نمونه کار ۶">
-    </div>
-
-  </div>
-
-</div>
-
-                <span>
-                  PROJECT 01
-                </span>
-
-                <strong>
-                  نمونه‌کار
-                </strong>
-
-              </div>
+              <img
+                src="images/photo_2026-10-01_17-02-52.jpg"
+                alt="نمونه کار ۱"
+              >
 
             </div>
 
 
-            <div class="portfolio-info">
+            <div class="portfolio-item">
 
-              <div>
-
-                <span>
-                  INSTAGRAM
-                </span>
-
-                <h3>
-                  مدیریت و توسعه پیج
-                </h3>
-
-              </div>
-
-              <a href="#">
-                ↗
-              </a>
+              <img
+                src="images/photo_2026-10-01_17-02-58.jpg"
+                alt="نمونه کار ۲"
+              >
 
             </div>
 
 
-          </article>
+            <div class="portfolio-item">
 
-
-
-          <!-- PROJECT 02 -->
-
-          <article class="portfolio-card">
-
-
-            <div class="portfolio-media">
-
-              <div class="media-placeholder">
-
-                <span>
-                  PROJECT 02
-                </span>
-
-                <strong>
-                  WEBSITE
-                </strong>
-
-              </div>
+              <img
+                src="images/photo_2026-10-01_17-03-22.jpg"
+                alt="نمونه کار ۳"
+              >
 
             </div>
 
 
-            <div class="portfolio-info">
+            <div class="portfolio-item">
 
-              <div>
-
-                <span>
-                  WEB DESIGN
-                </span>
-
-                <h3>
-                  طراحی سایت
-                </h3>
-
-              </div>
-
-              <a href="#">
-                ↗
-              </a>
+              <img
+                src="images/photo_2026-10-01_17-03-40.jpg"
+                alt="نمونه کار ۴"
+              >
 
             </div>
 
 
-          </article>
+            <div class="portfolio-item">
 
-
-
-          <!-- PROJECT 03 -->
-
-          <article class="portfolio-card">
-
-
-            <div class="portfolio-media">
-
-              <div class="media-placeholder">
-
-                <span>
-                  PROJECT 03
-                </span>
-
-                <strong>
-                  DESIGN
-                </strong>
-
-              </div>
+              <img
+                src="images/photo_2026-10-01_17-03-45.jpg"
+                alt="نمونه کار ۵"
+              >
 
             </div>
 
 
-            <div class="portfolio-info">
+            <div class="portfolio-item">
 
-              <div>
-
-                <span>
-                  CREATIVE
-                </span>
-
-                <h3>
-                  طراحی و دیزاین
-                </h3>
-
-              </div>
-
-              <a href="#">
-                ↗
-              </a>
+              <img
+                src="images/photo_2026-10-01_17-03-48.jpg"
+                alt="نمونه کار ۶"
+              >
 
             </div>
 
 
-          </article>
-
-
+          </div>
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -1177,17 +1074,14 @@
 
     <section class="section video-section">
 
-
       <div class="container">
 
 
         <div class="section-heading">
 
-
           <span class="eyebrow">
             SHOWREEL
           </span>
-
 
           <h2>
 
@@ -1198,7 +1092,6 @@
 
           </h2>
 
-
           <p>
 
             این بخش برای نمایش ویدیوهای
@@ -1206,31 +1099,23 @@
 
           </p>
 
-
         </div>
-
 
 
         <div class="video-grid">
 
 
-          <!-- VIDEO 01 -->
-
           <article class="video-card">
 
-
             <div class="video-placeholder">
-
 
               <div class="play-button">
                 ▶
               </div>
 
-
               <span>
                 VIDEO 01
               </span>
-
 
             </div>
 
@@ -1247,28 +1132,21 @@
 
             </div>
 
-
           </article>
 
 
 
-          <!-- VIDEO 02 -->
-
           <article class="video-card">
 
-
             <div class="video-placeholder">
-
 
               <div class="play-button">
                 ▶
               </div>
 
-
               <span>
                 VIDEO 02
               </span>
-
 
             </div>
 
@@ -1285,15 +1163,12 @@
 
             </div>
 
-
           </article>
 
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -1306,17 +1181,14 @@
       id="about"
     >
 
-
       <div class="container about-grid">
 
 
         <div class="about-content">
 
-
           <span class="eyebrow">
             ABOUT US
           </span>
-
 
           <h2>
 
@@ -1330,10 +1202,8 @@
 
 
           <p>
-
             ADMIN VIP یک تیم خلاق و چند تخصصی
             در حوزه دیجیتال است.
-
           </p>
 
 
@@ -1353,12 +1223,12 @@
           >
 
             همکاری با ما
+
             <span>
               ←
             </span>
 
           </a>
-
 
         </div>
 
@@ -1388,7 +1258,6 @@
           </div>
 
 
-
           <div class="about-item">
 
             <strong>
@@ -1410,7 +1279,6 @@
           </div>
 
 
-
           <div class="about-item">
 
             <strong>
@@ -1430,7 +1298,6 @@
             </div>
 
           </div>
-
 
 
           <div class="about-item">
@@ -1456,9 +1323,7 @@
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -1471,7 +1336,6 @@
       id="contact"
     >
 
-
       <div class="container">
 
 
@@ -1479,7 +1343,6 @@
 
 
           <div>
-
 
             <span class="eyebrow">
               LET'S WORK TOGETHER
@@ -1503,14 +1366,13 @@
 
             </p>
 
-
           </div>
-
 
 
           <a
             href="https://t.me/AMIR8435HOSSEIN"
             target="_blank"
+            rel="noopener noreferrer"
             class="telegram-button"
           >
 
@@ -1525,9 +1387,7 @@
 
         </div>
 
-
       </div>
-
 
     </section>
 
@@ -1539,7 +1399,6 @@
   <!-- ================= FOOTER ================= -->
 
   <footer>
-
 
     <div class="container footer-content">
 
@@ -1560,13 +1419,10 @@
 
 
         <p>
-
           Creative Digital Team
-
         </p>
 
       </div>
-
 
 
       <div class="footer-links">
@@ -1590,17 +1446,16 @@
       </div>
 
 
-
       <a
         href="https://t.me/AMIR8435HOSSEIN"
         target="_blank"
+        rel="noopener noreferrer"
         class="footer-telegram"
       >
 
         @AMIR8435HOSSEIN
 
       </a>
-
 
     </div>
 
@@ -1612,13 +1467,20 @@
 
     </div>
 
-
   </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="auth.js"></script>
-<script src="script.js"></script>
+
+
+  <!-- ================= SCRIPTS ================= -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="auth.js"></script>
+
+  <script src="script.js"></script>
+
 
 </body>
 
 </html>
+```
