@@ -802,3 +802,619 @@ body {
   }
 }
 ```
+```css
+/* =====================================================
+   OTP PREMIUM ANIMATION
+   ===================================================== */
+
+
+/* ================= OTP BOXES ================= */
+
+.otp-boxes {
+  position: relative;
+  transition:
+    transform .45s cubic-bezier(.22,1,.36,1),
+    opacity .45s ease,
+    filter .45s ease;
+}
+
+
+/* ================= CHECKING ANIMATION ================= */
+
+.otp-boxes.checking {
+  animation: otpContainerSpin .9s cubic-bezier(.22,1,.36,1);
+}
+
+
+/* هر کادر جداگانه حرکت می‌کند */
+
+.otp-boxes.checking .otp-input:nth-child(1) {
+  animation: otpBoxSpin1 .9s ease;
+}
+
+.otp-boxes.checking .otp-input:nth-child(2) {
+  animation: otpBoxSpin2 .9s ease .05s;
+}
+
+.otp-boxes.checking .otp-input:nth-child(3) {
+  animation: otpBoxSpin3 .9s ease .10s;
+}
+
+.otp-boxes.checking .otp-input:nth-child(4) {
+  animation: otpBoxSpin4 .9s ease .15s;
+}
+
+.otp-boxes.checking .otp-input:nth-child(5) {
+  animation: otpBoxSpin5 .9s ease .20s;
+}
+
+.otp-boxes.checking .otp-input:nth-child(6) {
+  animation: otpBoxSpin6 .9s ease .25s;
+}
+
+
+/* ================= MAIN ROTATION ================= */
+
+@keyframes otpContainerSpin {
+
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(.94);
+  }
+
+  65% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+/* ================= BOX 1 ================= */
+
+@keyframes otpBoxSpin1 {
+
+  0% {
+    transform: translateX(0) rotateY(0);
+  }
+
+  45% {
+    transform:
+      translateX(-10px)
+      rotateY(180deg)
+      scale(.92);
+  }
+
+  100% {
+    transform:
+      translateX(0)
+      rotateY(360deg)
+      scale(1);
+  }
+
+}
+
+
+/* ================= BOX 2 ================= */
+
+@keyframes otpBoxSpin2 {
+
+  0% {
+    transform: translateY(0) rotateY(0);
+  }
+
+  45% {
+    transform:
+      translateY(-12px)
+      rotateY(180deg)
+      scale(.92);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      rotateY(360deg)
+      scale(1);
+  }
+
+}
+
+
+/* ================= BOX 3 ================= */
+
+@keyframes otpBoxSpin3 {
+
+  0% {
+    transform: translateY(0) rotateX(0);
+  }
+
+  45% {
+    transform:
+      translateY(10px)
+      rotateX(180deg)
+      scale(.92);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      rotateX(360deg)
+      scale(1);
+  }
+
+}
+
+
+/* ================= BOX 4 ================= */
+
+@keyframes otpBoxSpin4 {
+
+  0% {
+    transform: translateY(0) rotateX(0);
+  }
+
+  45% {
+    transform:
+      translateY(-10px)
+      rotateX(180deg)
+      scale(.92);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      rotateX(360deg)
+      scale(1);
+  }
+
+}
+
+
+/* ================= BOX 5 ================= */
+
+@keyframes otpBoxSpin5 {
+
+  0% {
+    transform: translateX(0) rotateY(0);
+  }
+
+  45% {
+    transform:
+      translateX(12px)
+      rotateY(180deg)
+      scale(.92);
+  }
+
+  100% {
+    transform:
+      translateX(0)
+      rotateY(360deg)
+      scale(1);
+  }
+
+}
+
+
+/* ================= BOX 6 ================= */
+
+@keyframes otpBoxSpin6 {
+
+  0% {
+    transform: translateY(0) rotateY(0);
+  }
+
+  45% {
+    transform:
+      translateY(10px)
+      rotateY(180deg)
+      scale(.92);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      rotateY(360deg)
+      scale(1);
+  }
+
+}
+
+
+/* ================= SUCCESS STATE ================= */
+
+.otp-boxes.success {
+  animation: otpSuccessPulse .45s ease;
+}
+
+
+@keyframes otpSuccessPulse {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+/* ================= SUCCESS GLOW ================= */
+
+.otp-boxes.success .otp-input {
+  border-color: #65d486 !important;
+
+  box-shadow:
+    0 0 0 2px rgba(101, 212, 134, .12),
+    0 0 25px rgba(101, 212, 134, .28) !important;
+
+  color: #65d486 !important;
+
+  transition:
+    border-color .3s ease,
+    box-shadow .3s ease,
+    color .3s ease;
+}
+
+
+/* ================= VERIFY BUTTON ================= */
+
+.verify-button.verifying {
+  pointer-events: none;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.verify-button.verifying span {
+  opacity: .75;
+}
+
+
+.verify-button.verifying::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  top: 50%;
+  left: 22px;
+
+  margin-top: -10px;
+
+  border-radius: 50%;
+
+  border:
+    2px solid rgba(17, 16, 14, .2);
+
+  border-top-color:
+    #11100e;
+
+  animation:
+    otpButtonLoader .7s linear infinite;
+
+}
+
+
+@keyframes otpButtonLoader {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =====================================================
+   SUCCESS SCREEN
+   ===================================================== */
+
+.success-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(101, 212, 134, .08),
+      rgba(17, 16, 14, .98) 55%
+    );
+
+  backdrop-filter: blur(18px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform: scale(1.08);
+
+  transition:
+    opacity .4s ease,
+    visibility .4s ease,
+    transform .5s cubic-bezier(.22,1,.36,1);
+}
+
+
+.success-screen.show {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: scale(1);
+
+}
+
+
+/* ================= GREEN CIRCLE ================= */
+
+.success-circle {
+
+  position: relative;
+
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(101, 212, 134, .08);
+
+  border:
+    2px solid #65d486;
+
+  box-shadow:
+    0 0 0 10px rgba(101, 212, 134, .06),
+    0 0 45px rgba(101, 212, 134, .25);
+
+  animation:
+    successCircleIn .65s cubic-bezier(.22,1,.36,1) both;
+
+}
+
+
+.success-circle::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -12px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(101, 212, 134, .35);
+
+  animation:
+    successRing 1.5s ease-out infinite;
+
+}
+
+
+.success-circle span {
+
+  font-size: 58px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  color: #65d486;
+
+  opacity: 0;
+
+  transform: scale(.4);
+
+  animation:
+    successCheck .45s .25s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+
+/* ================= SUCCESS TEXT ================= */
+
+.success-screen h2 {
+
+  margin: 0;
+
+  color: #65d486;
+
+  font-size: 32px;
+
+  font-weight: 800;
+
+  animation:
+    successText .5s .35s ease both;
+
+}
+
+
+.success-screen p {
+
+  margin: 0;
+
+  color: rgba(255,255,255,.7);
+
+  font-size: 15px;
+
+  animation:
+    successText .5s .45s ease both;
+
+}
+
+
+/* ================= SUCCESS ANIMATIONS ================= */
+
+@keyframes successCircleIn {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      scale(.25)
+      rotate(-180deg);
+
+  }
+
+  70% {
+
+    transform:
+      scale(1.08)
+      rotate(10deg);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0);
+
+  }
+
+}
+
+
+@keyframes successCheck {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      scale(.3)
+      rotate(-30deg);
+
+  }
+
+  70% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.15)
+      rotate(8deg);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0);
+
+  }
+
+}
+
+
+@keyframes successRing {
+
+  0% {
+
+    opacity: .8;
+
+    transform: scale(.8);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform: scale(1.45);
+
+  }
+
+}
+
+
+@keyframes successText {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+  .success-circle {
+
+    width: 90px;
+    height: 90px;
+
+  }
+
+  .success-circle span {
+
+    font-size: 48px;
+
+  }
+
+  .success-screen h2 {
+
+    font-size: 26px;
+
+  }
+
+}
+```
