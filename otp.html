@@ -1,0 +1,146 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>تأیید حساب | ADMIN VIP</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="otp.css">
+</head>
+
+<body>
+
+  <div class="otp-background">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="grid-background"></div>
+  </div>
+
+  <main class="otp-page">
+
+    <div class="otp-card">
+
+      <div class="brand">
+        <span>ADMIN</span>
+        <strong>VIP</strong>
+      </div>
+
+      <div class="verification-icon">
+        <div class="icon-ring">
+          <span>✦</span>
+        </div>
+      </div>
+
+      <div class="otp-heading">
+        <span class="eyebrow">SECURITY CHECK</span>
+
+        <h1>تأیید <strong>حساب</strong></h1>
+
+        <p>
+          کد تأیید ارسال‌شده را وارد کنید
+        </p>
+      </div>
+
+      <div class="otp-boxes" id="otpBoxes">
+
+        <input
+          class="otp-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+          autocomplete="one-time-code"
+        >
+
+        <input
+          class="otp-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+        >
+
+        <input
+          class="otp-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+        >
+
+        <input
+          class="otp-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+        >
+
+        <input
+          class="otp-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+        >
+
+        <input
+          class="otp-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="1"
+        >
+
+      </div>
+
+      <div class="otp-status" id="otpStatus"></div>
+
+      <button class="verify-button" id="verifyButton">
+        <span>تأیید کد</span>
+        <b>→</b>
+      </button>
+
+      <div class="resend-area">
+
+        <span>کد را دریافت نکردید؟</span>
+
+        <button id="resendButton" disabled>
+          ارسال مجدد
+        </button>
+
+        <span class="timer" id="timer">
+          00:30
+        </span>
+
+      </div>
+
+      <a href="index.html" class="back-link">
+        بازگشت به ADMIN VIP
+      </a>
+
+    </div>
+
+  </main>
+
+  <div class="success-screen" id="successScreen">
+
+    <div class="success-circle">
+      <span>✓</span>
+    </div>
+
+    <h2>تأیید شد</h2>
+
+    <p>حساب شما با موفقیت تأیید شد.</p>
+
+  </div>
+
+  <script src="otp.js"></script>
+
+</body>
+</html>
+```
