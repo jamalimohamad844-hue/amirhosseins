@@ -18,10 +18,8 @@ inputs.forEach((input, index) => {
 
   input.addEventListener("input", () => {
 
-    // فقط عدد
-    const value = input.value.replace(/\D/g, "");
+    let value = input.value.replace(/\D/g, "");
 
-    // فقط یک رقم
     input.value = value.slice(-1);
 
     if (input.value) {
@@ -41,7 +39,7 @@ inputs.forEach((input, index) => {
 
     clearError();
 
-    // وقتی ۶ رقم کامل شد
+    // بعد از وارد شدن رقم ششم
     if (getCode().length === 6) {
       startVerification();
     }
@@ -72,12 +70,8 @@ inputs.forEach((input, index) => {
 
     }
 
-  });
 
-
-  /* ================= ARROW KEYS ================= */
-
-  input.addEventListener("keydown", (event) => {
+    /* ================= ARROW KEYS ================= */
 
     if (
       event.key === "ArrowLeft" &&
@@ -187,22 +181,51 @@ function startVerification() {
 
   isVerifying = true;
 
-  verifyButton.classList.add("verifying");
+  clearError();
 
-  verifyButton.querySelector("span").textContent =
-    "در حال بررسی...";
-
+  /* جلوگیری از ورود دوباره */
   inputs.forEach(input => {
     input.disabled = true;
   });
 
 
-  // فعلاً تستی
+  /* دکمه در حال بررسی */
+  verifyButton.classList.add("verifying");
+
+  verifyButton.querySelector("span").textContent =
+    "در حال بررسی...";
+
+
+  /*
+  شروع انیمیشن کادرهای OTP
+  */
+
+  otpBoxes.classList.add("checking");
+
+
+  /*
+  بعد از چرخش کادرها
+  نمایش تیک سبز
+  */
+
+  setTimeout(() => {
+
+    otpBoxes.classList.remove("checking");
+
+    otpBoxes.classList.add("success");
+
+  }, 900);
+
+
+  /*
+  نمایش صفحه موفقیت
+  */
+
   setTimeout(() => {
 
     successScreen.classList.add("show");
 
-  }, 1200);
+  }, 1250);
 
 }
 
@@ -213,7 +236,9 @@ verifyButton.addEventListener("click", () => {
 
   if (getCode().length !== 6) {
 
-    showError("لطفاً کد ۶ رقمی را کامل وارد کنید.");
+    showError(
+      "لطفاً کد ۶ رقمی را کامل وارد کنید."
+    );
 
     return;
 
@@ -280,6 +305,11 @@ resendButton.addEventListener("click", () => {
 
   verifyButton.querySelector("span").textContent =
     "تأیید کد";
+
+  otpBoxes.classList.remove(
+    "checking",
+    "success"
+  );
 
   inputs.forEach(input => {
 
