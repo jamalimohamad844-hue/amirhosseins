@@ -1,7 +1,7 @@
 ```javascript
 const inputs = [...document.querySelectorAll(".otp-input")];
-const otpBoxes = document.getElementById("otpBoxes");
 
+const otpBoxes = document.getElementById("otpBoxes");
 const verifyButton = document.getElementById("verifyButton");
 const resendButton = document.getElementById("resendButton");
 
@@ -10,20 +10,20 @@ const statusElement = document.getElementById("otpStatus");
 
 const successScreen = document.getElementById("successScreen");
 
+let isVerifying = false;
+
 
 /* ================= INPUT ================= */
 
 inputs.forEach((input, index) => {
 
-  input.addEventListener("input", (event) => {
+  input.addEventListener("input", () => {
 
-    let value = event.target.value;
+    let value = input.value.replace(/\D/g, "");
 
-    value = value.replace(/\D/g, "");
+    input.value = value.slice(-1);
 
-    event.target.value = value.slice(-1);
-
-    if (value) {
+    if (input.value) {
 
       input.classList.add("filled");
 
@@ -38,6 +38,11 @@ inputs.forEach((input, index) => {
     }
 
     clearError();
+
+    /* وقتی رقم ششم وارد شد */
+    if (getCode().length === 6) {
+      startVerification();
+    }
 
   });
 
@@ -79,16 +84,22 @@ inputs[0].addEventListener("paste", (event) => {
     if (inputs[index]) {
 
       inputs[index].value = digit;
-
       inputs[index].classList.add("filled");
 
     }
 
   });
 
-  const nextIndex = Math.min(pasted.length, inputs.length - 1);
+  if (pasted.length === 6) {
+    startVerification();
+  } else {
 
-  inputs[nextIndex].focus();
+    const nextIndex =
+      Math.min(pasted.length, inputs.length - 1);
+
+    inputs[nextIndex].focus();
+
+  }
 
 });
 
@@ -133,12 +144,42 @@ function clearError() {
 
 /* ================= VERIFY ================= */
 
-```javascript
+function startVerification() {
+
+  if (isVerifying) return;
+
+  if (getCode().length !== 6) return;
+
+  isVerifying = true;
+
+  verifyButton.classList.add("verifying");
+
+  verifyButton.querySelector("span").textContent =
+    "در حال بررسی...";
+
+  inputs.forEach(input => {
+    input.disabled = true;
+  });
+
+  /*
+    فعلاً تستی است.
+    بعداً اینجا OTP واقعی Supabase قرار می‌گیرد.
+  */
+
+  setTimeout(() => {
+
+    successScreen.classList.add("show");
+
+  }, 1200);
+
+}
+
+
+/* ================= BUTTON ================= */
+
 verifyButton.addEventListener("click", () => {
 
-  const code = getCode();
-
-  if (code.length !== 6) {
+  if (getCode().length !== 6) {
 
     showError("لطفاً کد ۶ رقمی را کامل وارد کنید.");
 
@@ -146,27 +187,19 @@ verifyButton.addEventListener("click", () => {
 
   }
 
-  clearError();
-
-  verifyButton.classList.add("verifying");
-
-  verifyButton.querySelector("span").textContent =
-    "در حال بررسی...";
-
-  setTimeout(() => {
-
-    successScreen.classList.add("show");
-
-  }, 1100);
+  startVerification();
 
 });
-```
+
 
 /* ================= TIMER ================= */
 
 let remainingTime = 30;
+let timerInterval;
 
 function startTimer() {
+
+  clearInterval(timerInterval);
 
   remainingTime = 30;
 
@@ -174,7 +207,7 @@ function startTimer() {
 
   updateTimer();
 
-  const interval = setInterval(() => {
+  timerInterval = setInterval(() => {
 
     remainingTime--;
 
@@ -182,7 +215,7 @@ function startTimer() {
 
     if (remainingTime <= 0) {
 
-      clearInterval(interval);
+      clearInterval(timerInterval);
 
       resendButton.disabled = false;
 
@@ -208,7 +241,16 @@ resendButton.addEventListener("click", () => {
 
   clearError();
 
+  isVerifying = false;
+
+  verifyButton.classList.remove("verifying");
+
+  verifyButton.querySelector("span").textContent =
+    "تأیید کد";
+
   inputs.forEach(input => {
+
+    input.disabled = false;
 
     input.value = "";
 
