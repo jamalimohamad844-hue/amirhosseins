@@ -1,19 +1,19 @@
 ```css
 :root {
-  --black: #160D10;
-  --black-soft: #241317;
+  --black: #11100e;
+  --black-soft: #1b1916;
 
-  --cream: #F3E8E5;
-  --cream-dark: #E4D2CE;
+  --cream: #f3ede2;
+  --cream-dark: #e8dece;
 
-  --white: #FFFDFC;
+  --white: #fffdf9;
 
-  --brown: #8E3044;
-  --gray: #756B6D;
+  --brown: #9a8061;
+  --gray: #706b63;
 
-  --border: rgba(142, 48, 68, 0.16);
+  --border: rgba(17, 16, 14, 0.12);
 
-  --shadow: 0 25px 80px rgba(40, 10, 18, 0.14);
+  --shadow: 0 25px 80px rgba(17, 16, 14, 0.12);
 }
 ```
 /* ================= HEADER ================= */
