@@ -2271,3 +2271,9 @@ img {
 
 }
 ```
+```css
+/* رنگ VIP در لوگوی بالای سایت */
+.logo span {
+  color: #f3ede2 !important;
+}
+```
