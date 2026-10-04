@@ -133,6 +133,7 @@ function clearError() {
 
 /* ================= VERIFY ================= */
 
+```javascript
 verifyButton.addEventListener("click", () => {
 
   const code = getCode();
@@ -145,14 +146,9 @@ verifyButton.addEventListener("click", () => {
 
   }
 
-  /*
-    موقتاً برای تست ظاهر:
-    هر کد ۶ رقمی پذیرفته می‌شود.
+  clearError();
 
-    بعداً این قسمت را به Supabase OTP واقعی وصل می‌کنیم.
-  */
-
-  verifyButton.disabled = true;
+  verifyButton.classList.add("verifying");
 
   verifyButton.querySelector("span").textContent =
     "در حال بررسی...";
@@ -161,10 +157,10 @@ verifyButton.addEventListener("click", () => {
 
     successScreen.classList.add("show");
 
-  }, 700);
+  }, 1100);
 
 });
-
+```
 
 /* ================= TIMER ================= */
 
